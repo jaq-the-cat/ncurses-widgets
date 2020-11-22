@@ -5,6 +5,23 @@
 
 #define ss stdscr
 
+enum States {
+    END,
+    CONTINUE,
+    NOTHING
+};
+
+enum States process_key() {
+    int c;
+    switch (c = getch()) {
+        case KEY_BACKSPACE:
+            return END;
+        default:
+            break;
+    }
+    return NOTHING;
+}
+
 int main() {
     // setup ncurses
     initscr();
@@ -13,14 +30,25 @@ int main() {
     keypad(ss, true);
 
     // driver code
-    clear();
 
-    addstr("Hello, ncurses!"); 
-    getch();
+    while (true) {
+        clear();
+        addstr("Hello, ncurses!"); 
+        switch (process_key()) {
+            case END:
+                goto end;
+            case CONTINUE:
+                continue;
+            case NOTHING:
+                break;
+        };
+        refresh();
+        napms(25);
+    }
 
-    refresh();
 
     // end
+    end:
     curs_set(true);
     nocbreak();
     endwin();
