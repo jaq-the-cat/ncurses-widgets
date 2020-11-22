@@ -6,16 +6,22 @@
 #define SCR stdscr
 
 int main() {
+    // setup ncurses
     initscr();
-    clear();
-
     nocbreak();
     curs_set(false);
+
+    // driver code
+    clear();
 
     addstr("Hello, ncurses!"); 
     getch();
 
     refresh();
+
+    // end
+    curs_set(true);
+    nocbreak();
     endwin();
     return 0;
 }
