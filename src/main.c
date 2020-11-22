@@ -30,7 +30,6 @@ int main() {
     keypad(ss, true);
 
     // driver code
-
     while (true) {
         clear();
         addstr("Hello, ncurses!"); 
