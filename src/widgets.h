@@ -1,4 +1,6 @@
 #pragma once
+#include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct {
     int x;
@@ -8,7 +10,7 @@ typedef struct {
     char* text;
 } NWHeader;
 
-NWHeader NWheader();
+NWHeader NWheader(char* text, size_t text_len);
 
 typedef struct {
     int x;
@@ -18,7 +20,7 @@ typedef struct {
     char* text;
 } NWText;
 
-NWText NWtext();
+NWText NWtext(char* text, size_t text_len);
 
 typedef struct {
     int x;
@@ -29,7 +31,7 @@ typedef struct {
     bool pressed;
 } NWButton;
 
-NWButton NWbutton();
+NWButton NWbutton(char* text, size_t text_len);
 
 typedef struct {
     int x;
@@ -40,4 +42,4 @@ typedef struct {
     bool pressed;
 } NWToggle;
 
-NWToggle NWtoggle();
+NWToggle NWtoggle(char* text, size_t text_len);
