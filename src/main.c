@@ -9,7 +9,10 @@ int main() {
     initscr();
     clear();
 
-    addstr("Hello, ncurses!");
+    nocbreak();
+    curs_set(false);
+
+    addstr("Hello, ncurses!"); 
     getch();
 
     refresh();
