@@ -6,7 +6,9 @@ typedef struct {
     int width;
     int height;
     char* text;
-} Header;
+} NWHeader;
+
+NWHeader NWheader();
 
 typedef struct {
     int x;
@@ -14,7 +16,9 @@ typedef struct {
     int width;
     int height;
     char* text;
-} Text;
+} NWText;
+
+NWText NWtext();
 
 typedef struct {
     int x;
@@ -23,7 +27,9 @@ typedef struct {
     int height;
     char* text;
     bool pressed;
-} Button;
+} NWButton;
+
+NWButton NWbutton();
 
 typedef struct {
     int x;
@@ -32,4 +38,6 @@ typedef struct {
     int height;
     char* text;
     bool pressed;
-} Toggle;
+} NWToggle;
+
+NWToggle NWtoggle();
