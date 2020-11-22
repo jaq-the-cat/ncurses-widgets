@@ -3,13 +3,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define SCR stdscr
+#define ss stdscr
 
 int main() {
     // setup ncurses
     initscr();
-    nocbreak();
+    cbreak();
     curs_set(false);
+    keypad(ss, true);
 
     // driver code
     clear();
