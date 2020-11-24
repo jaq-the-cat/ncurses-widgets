@@ -1,7 +1,7 @@
 #include "widgets.h"
 #include <string.h>
 
-NWToggle NWtoggle(int x, int y, char* text, size_t text_len) {
+NWToggle NWtoggle(int x, int y, char* text) {
     NWToggle t = {
         .x      = x,
         .y      = y,
