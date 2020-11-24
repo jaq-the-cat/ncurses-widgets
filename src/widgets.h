@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WIDGETS_H
+#define WIDGETS_H
 #include <ncurses.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -50,15 +51,5 @@ typedef struct {
 NWToggle NWtoggle(int, int, char*);
 void NWtoggle_display(NWToggle*, WINDOW*);
 
-const char* str_repeat(char* str, size_t times)
-{
-    if (times < 1) return NULL;
-    char *ret = (char *) (malloc(sizeof(str) * times + 1));
-    if (ret == NULL) return NULL;
-    strcpy(ret, str);
-    while (--times > 0) {
-        strcat(ret, str);
-    }
-    return ret;
-}
-
+const char* str_repeat(char*, size_t);
+#endif

@@ -12,7 +12,14 @@ NWHeader NWheader(int x, int y, char* text) {
 }
 
 void NWheader_display(NWHeader *header, WINDOW *stdscr) {
-    mvaddstr(header->y, header->x, "---------");
-    mvaddstr(header->y+1, header->x, header->text);
-    mvaddstr(header->y+2, header->x, "---------");
+    const char* line = str_repeat("-", header->width);
+    char* text = "";
+    text = strcat(text, "/ ");
+    text = strcat(text, header->text);
+    text = strcat(text, " /");
+    mvaddstr(header->y, header->x, line);
+    mvaddstr(header->y+1, header->x, text);
+    mvaddstr(header->y+2, header->x, line);
+    free((void *) line);
+    /*free((void *) text);*/
 }

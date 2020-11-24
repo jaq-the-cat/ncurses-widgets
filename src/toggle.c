@@ -1,5 +1,4 @@
 #include "widgets.h"
-#include <string.h>
 
 NWToggle NWtoggle(int x, int y, char* text) {
     NWToggle t = {

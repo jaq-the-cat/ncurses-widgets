@@ -1,5 +1,4 @@
 #include "widgets.h"
-#include <string.h>
 
 NWText NWtext(int x, int y, char* text) {
     NWText t = {

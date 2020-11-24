@@ -4,6 +4,7 @@ src/text.c
 src/button.c
 src/header.c
 src/toggle.c
+src/str_repeat.c
 
 -LIBS
 ncurses
