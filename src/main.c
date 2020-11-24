@@ -32,12 +32,14 @@ int main() {
     // init widgets
     NWHeader h = NWheader(1, 1, "Hello!!");
     NWButton b = NWbutton(1, h.y + h.height + 1, "My Button");
+    NWText t = NWtext(1, 15, "Text!");
 
     // driver code
     while (true) {
         clear();
         NWheader_display(&h, stdscr);
         NWbutton_display(&b, stdscr);
+        NWtext_display(&t, stdscr);
         switch (process_key()) {
             case END:
                 goto end;
