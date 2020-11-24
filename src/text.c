@@ -2,7 +2,7 @@
 
 NWText NWtext(int x, int y, char* text) {
     NWText t = {
-        .x      = x,
+        .x      = 2,
         .y      = y,
         .width  = strlen(text),
         .height = 1,

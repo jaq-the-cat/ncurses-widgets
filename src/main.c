@@ -30,11 +30,16 @@ int main() {
     keypad(stdscr, true);
 
     // init widgets
-    NWHeader h = NWheader(1, 1, "Hello!!");
-    NWButton b = NWbutton(1, h.y + h.height + 1, "My Button");
-    NWText t = NWtext(1, 15, "Text!");
-    NWToggle tgl = NWtoggle(1, 10, "Toggle!");
+    int yoff = 1;
+    NWHeader h = NWheader(0, yoff, "Hello!!");
+    yoff += h.height;
+    NWButton b = NWbutton(0, yoff, "My Button");
+    yoff += b.height;
+    NWText t = NWtext(0, yoff, "Text!");
+    yoff += t.height;
+    NWToggle tgl = NWtoggle(0, yoff, "Toggle!");
     tgl.pressed = true;
+    yoff += tgl.height;
 
     // driver code
     while (true) {

@@ -2,7 +2,7 @@
 
 NWButton NWbutton(int x, int y, char* text) {
     NWButton t = {
-        .x      = x,
+        .x      = 2,
         .y      = y,
         .width  = strlen(text) + 4,
         .height = 1,

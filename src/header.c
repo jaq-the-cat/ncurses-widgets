@@ -2,7 +2,7 @@
 
 NWHeader NWheader(int x, int y, char* text) {
     NWHeader t = {
-        .x      = x,
+        .x      = 2,
         .y      = y,
         .width  = strlen(text) + 4,
         .height = 3,
