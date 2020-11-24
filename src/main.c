@@ -22,8 +22,6 @@ enum States process_key() {
     return NOTHING;
 }
 
-extern NWHeader NWheader_display(NWHeader *header, WINDOW *scr);
-
 int main() {
     // setup ncurses
     initscr();
@@ -37,7 +35,7 @@ int main() {
     // driver code
     while (true) {
         clear();
-        mvaddstr(h.y, h.x, h.text);
+        NWheader_display(&h, stdscr);
         switch (process_key()) {
             case END:
                 goto end;

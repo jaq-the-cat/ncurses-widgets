@@ -1,4 +1,5 @@
 #pragma once
+#include <ncurses.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -11,6 +12,7 @@ typedef struct {
 } NWHeader;
 
 NWHeader NWheader(int, int, char*);
+void NWheader_display(NWHeader*, WINDOW*);
 
 typedef struct {
     int x;
@@ -21,6 +23,7 @@ typedef struct {
 } NWText;
 
 NWText NWtext(int, int, char*);
+void NWtext_display(NWText*, WINDOW*);
 
 typedef struct {
     int x;
@@ -32,6 +35,7 @@ typedef struct {
 } NWButton;
 
 NWButton NWbutton(int, int, char*);
+void NWbutton_display(NWButton*, WINDOW*);
 
 typedef struct {
     int x;
@@ -43,3 +47,4 @@ typedef struct {
 } NWToggle;
 
 NWToggle NWtoggle(int, int, char*);
+void NWtoggle_display(NWToggle*, WINDOW*);
