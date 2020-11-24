@@ -2,18 +2,25 @@
 #include <string.h>
 
 NWHeader NWheader(int x, int y, char* text, size_t text_len) {
-    NWHeader h = {
-        .x = x,
-        .y = y,
-        strlen(text) + 4,
-        3,
-        text,
+    NWHeader t = {
+        .x      = x,
+        .y      = y,
+        .width  = strlen(text) + 4,
+        .height = 3,
+        .text   = text,
     };
-    return h;
+    return t;
 }
 
 NWText NWtext(int x, int y, char* text, size_t text_len) {
-
+    NWText t = {
+        .x      = x,
+        .y      = y,
+        .width  = strlen(text) + 2,
+        .height = 2,
+        .text   = text,
+    };
+    return t;
 }
 
 NWButton NWbutton(int x, int y, char* text, size_t text_len) {
