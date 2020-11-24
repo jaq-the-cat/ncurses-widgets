@@ -1,5 +1,9 @@
 -SOURCE
 src/main.c
+src/text.c
+src/button.c
+src/header.c
+src/toggle.c
 
 -LIBS
 ncurses
