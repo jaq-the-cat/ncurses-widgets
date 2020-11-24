@@ -13,10 +13,10 @@ NWHeader NWheader(int x, int y, char* text) {
 
 void NWheader_display(NWHeader *header, WINDOW *stdscr) {
     const char* line = str_repeat("-", header->width);
-    char* text = "";
-    strcat(text, "/ ");
+    char text[100] = "";
+    strcat(text, "| ");
     strcat(text, header->text);
-    strcat(text, " /");
+    strcat(text, " |");
     mvaddstr(header->y, header->x, line);
     mvaddstr(header->y+1, header->x, text);
     mvaddstr(header->y+2, header->x, line);
