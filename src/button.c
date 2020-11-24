@@ -1,6 +1,6 @@
 #include "widgets.h"
 
-NWButton NWbutton(int x, int y, char* text) {
+NWButton NWbutton(int y, char* text) {
     NWButton t = {
         .x      = 2,
         .y      = y,

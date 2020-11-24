@@ -1,6 +1,6 @@
 #include "widgets.h"
 
-NWHeader NWheader(int x, int y, char* text) {
+NWHeader NWheader(int y, char* text) {
     NWHeader t = {
         .x      = 2,
         .y      = y,

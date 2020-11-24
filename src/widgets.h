@@ -13,7 +13,7 @@ typedef struct {
     char* text;
 } NWHeader;
 
-NWHeader NWheader(int, int, char*);
+NWHeader NWheader(int, char*);
 void NWheader_display(NWHeader*, WINDOW*);
 
 typedef struct {
@@ -24,7 +24,7 @@ typedef struct {
     char* text;
 } NWText;
 
-NWText NWtext(int, int, char*);
+NWText NWtext(int, char*);
 void NWtext_display(NWText*, WINDOW*);
 
 typedef struct {
@@ -36,7 +36,7 @@ typedef struct {
     bool pressed;
 } NWButton;
 
-NWButton NWbutton(int, int, char*);
+NWButton NWbutton(int, char*);
 void NWbutton_display(NWButton*, WINDOW*);
 
 typedef struct {
@@ -48,7 +48,7 @@ typedef struct {
     bool pressed;
 } NWToggle;
 
-NWToggle NWtoggle(int, int, char*);
+NWToggle NWtoggle(int, char*);
 void NWtoggle_display(NWToggle*, WINDOW*);
 
 const char* str_repeat(char*, size_t);

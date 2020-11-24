@@ -1,6 +1,6 @@
 #include "widgets.h"
 
-NWText NWtext(int x, int y, char* text) {
+NWText NWtext(int y, char* text) {
     NWText t = {
         .x      = 2,
         .y      = y,

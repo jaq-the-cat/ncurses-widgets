@@ -31,13 +31,13 @@ int main() {
 
     // init widgets
     int yoff = 1;
-    NWHeader h = NWheader(0, yoff, "Hello!!");
+    NWHeader h = NWheader(yoff, "Hello!!");
     yoff += h.height;
-    NWButton b = NWbutton(0, yoff, "My Button");
+    NWButton b = NWbutton(yoff, "My Button");
     yoff += b.height;
-    NWText t = NWtext(0, yoff, "Text!");
+    NWText t = NWtext(yoff, "Text!");
     yoff += t.height;
-    NWToggle tgl = NWtoggle(0, yoff, "Toggle!");
+    NWToggle tgl = NWtoggle(yoff, "Toggle!");
     tgl.pressed = true;
     yoff += tgl.height;
 
