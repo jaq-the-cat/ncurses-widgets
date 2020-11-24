@@ -10,7 +10,7 @@ typedef struct {
     char* text;
 } NWHeader;
 
-NWHeader NWheader(char* text, size_t text_len);
+NWHeader NWheader(int, int, char*, size_t);
 
 typedef struct {
     int x;
@@ -20,7 +20,7 @@ typedef struct {
     char* text;
 } NWText;
 
-NWText NWtext(char* text, size_t text_len);
+NWText NWtext(int, int, char*, size_t);
 
 typedef struct {
     int x;
@@ -31,7 +31,7 @@ typedef struct {
     bool pressed;
 } NWButton;
 
-NWButton NWbutton(char* text, size_t text_len);
+NWButton NWbutton(int, int, char*, size_t);
 
 typedef struct {
     int x;
@@ -42,4 +42,4 @@ typedef struct {
     bool pressed;
 } NWToggle;
 
-NWToggle NWtoggle(char* text, size_t text_len);
+NWToggle NWtoggle(int, int, char*, size_t);

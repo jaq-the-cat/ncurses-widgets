@@ -1,10 +1,10 @@
 #include "widgets.h"
 #include <string.h>
 
-NWHeader NWheader(char* text, size_t text_len) {
+NWHeader NWheader(int x, int y, char* text, size_t text_len) {
     NWHeader h = {
-        .x = 0,
-        .y = 0,
+        .x = x,
+        .y = y,
         strlen(text) + 4,
         3,
         text,
@@ -12,14 +12,14 @@ NWHeader NWheader(char* text, size_t text_len) {
     return h;
 }
 
-NWText NWtext(char* text, size_t text_len) {
+NWText NWtext(int x, int y, char* text, size_t text_len) {
 
 }
 
-NWButton NWbutton(char* text, size_t text_len) {
+NWButton NWbutton(int x, int y, char* text, size_t text_len) {
 
 }
 
-NWToggle NWtoggle(char* text, size_t text_len) {
+NWToggle NWtoggle(int x, int y, char* text, size_t text_len) {
 
 }
