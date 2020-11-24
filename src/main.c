@@ -5,8 +5,6 @@
 
 #include "widgets.h"
 
-#define ss stdscr
-
 enum States {
     END,
     CONTINUE,
@@ -24,12 +22,14 @@ enum States process_key() {
     return NOTHING;
 }
 
+extern NWHeader NWheader_display(NWHeader *header, WINDOW *scr);
+
 int main() {
     // setup ncurses
     initscr();
     cbreak();
     curs_set(false);
-    keypad(ss, true);
+    keypad(stdscr, true);
 
     // init widgets
     NWHeader h = NWheader(1, 1, "Hello!!");
@@ -37,7 +37,7 @@ int main() {
     // driver code
     while (true) {
         clear();
-        addstr("Hello, ncurses!"); 
+        mvaddstr(h.y, h.x, h.text);
         switch (process_key()) {
             case END:
                 goto end;

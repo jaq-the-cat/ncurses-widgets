@@ -13,6 +13,6 @@ NWHeader NWheader(int x, int y, char* text) {
     return t;
 }
 
-void NWheader_display(NWHeader *header, WINDOW *scr) {
+void NWheader_display(NWHeader *header, WINDOW *stdscr) {
     mvaddstr(header->y, header->y, header->text);
 }
