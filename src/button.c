@@ -12,11 +12,15 @@ NWButton NWbutton(int y, char* text) {
 }
 
 void NWbutton_display(NWButton *w, WINDOW *stdscr) {
+    char text[200] = "";
     if (w->pressed == false) {
-        char text[200] = "";
         strcat(text, "[ ");
         strcat(text, w->text);
         strcat(text, " ]");
-        mvaddstr(w->y, w->x, text);
+    } else {
+        strcat(text, "{ ");
+        strcat(text, w->text);
+        strcat(text, " }");
     }
+    mvaddstr(w->y, w->x, text);
 }
