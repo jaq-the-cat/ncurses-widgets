@@ -1,7 +1,8 @@
 #include "widgets.h"
 #include <string.h>
+#include <ncurses.h>
 
-NWHeader NWheader(int x, int y, char* text, size_t text_len) {
+NWHeader NWheader(int x, int y, char* text) {
     NWHeader t = {
         .x      = x,
         .y      = y,
@@ -10,4 +11,8 @@ NWHeader NWheader(int x, int y, char* text, size_t text_len) {
         .text   = text,
     };
     return t;
+}
+
+void NWheader_display(NWHeader *header, WINDOW *scr) {
+    mvaddstr(header->y, header->y, header->text);
 }

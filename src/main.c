@@ -31,6 +31,9 @@ int main() {
     curs_set(false);
     keypad(ss, true);
 
+    // init widgets
+    NWHeader h = NWheader(1, 1, "Hello!!");
+
     // driver code
     while (true) {
         clear();
