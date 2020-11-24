@@ -10,3 +10,12 @@ NWToggle NWtoggle(int x, int y, char* text) {
     };
     return t;
 }
+
+void NWtoggle_display(NWToggle *w, WINDOW *stdscr) {
+    char text[200] = "";
+    strcat(text, "[");
+    strcat(text, w->pressed ? "X" : " ");
+    strcat(text, "] ");
+    strcat(text, w->text);
+    mvaddstr(w->y, w->x, text);
+}

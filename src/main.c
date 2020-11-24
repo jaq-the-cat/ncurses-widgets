@@ -33,6 +33,8 @@ int main() {
     NWHeader h = NWheader(1, 1, "Hello!!");
     NWButton b = NWbutton(1, h.y + h.height + 1, "My Button");
     NWText t = NWtext(1, 15, "Text!");
+    NWToggle tgl = NWtoggle(1, 10, "Toggle!");
+    tgl.pressed = true;
 
     // driver code
     while (true) {
@@ -40,6 +42,7 @@ int main() {
         NWheader_display(&h, stdscr);
         NWbutton_display(&b, stdscr);
         NWtext_display(&t, stdscr);
+        NWtoggle_display(&tgl, stdscr);
         switch (process_key()) {
             case END:
                 goto end;
