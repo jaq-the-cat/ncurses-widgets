@@ -21,5 +21,4 @@ void NWheader_display(NWHeader *header, WINDOW *stdscr) {
     mvaddstr(header->y+1, header->x, text);
     mvaddstr(header->y+2, header->x, line);
     free((void *) line);
-    /*free((void *) text);*/
 }
