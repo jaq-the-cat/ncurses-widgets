@@ -18,10 +18,10 @@ typedef struct {
     int width;
     int height;
     char* text;
-    NWWidgetType type;
+    enum NWWidgetType type;
 } NWWidget;
 
-NWWidget NWwidget_new(unsigned int, char*, NWWidgetType);
+NWWidget NWwidget_new(unsigned int, char*, enum NWWidgetType);
 
 const char* str_repeat(char*, size_t);
 #endif
