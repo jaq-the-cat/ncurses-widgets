@@ -35,7 +35,7 @@ int main() {
     NWHeader h = NWheader(yoff, "Hello!!");
     yoff += h.height;
 
-    Stuff s = Snew(&h);
+    Stuff s = Snew(&h, true);
 
     NWButton b = NWbutton(yoff, "My Button");
     yoff += b.height;
@@ -51,6 +51,8 @@ int main() {
     yoff += tgl.height;
 
     Sadd(&s, &tgl);
+
+    Sprint(&s);
 
     // driver code
     /*while (true) {*/
@@ -76,6 +78,6 @@ int main() {
     end:
     /*curs_set(true);*/
     /*nocbreak();*/
-    endwin();
+    /*endwin();*/
     return 0;
 }

@@ -1,9 +1,9 @@
 #include "stuff.h"
 
-Stuff Snew(void *data) {
+Stuff Snew(void *data, bool s) {
     Stuff t = {
         data, // widget
-        true, // selected
+        s, // selected
         NULL // next
     };
     return t;
@@ -11,10 +11,11 @@ Stuff Snew(void *data) {
 
 void Sadd(Stuff *stuff, void *data) {
     Stuff *t = stuff;
-    while (t->next != NULL) {
+    while (t->next != NULL)
         t = t->next;
-    }
-    t->next = data;
+    Stuff* new = malloc(sizeof(Stuff));
+    *new = Snew(data, false);
+    t->next = new;
 }
 
 void Sprint(Stuff *stuff) {
@@ -22,7 +23,8 @@ void Sprint(Stuff *stuff) {
     unsigned int c = 0;
     while (t->next != NULL) {
         printf("widget %d\n", c);
-        c++;;
+        c++;
+        t = t->next;
     }
     printf("widget %d\n", c);
 }

@@ -11,7 +11,7 @@ typedef struct s_Stuff {
     struct s_Stuff *next;
 } Stuff;
 
-Stuff Snew(void*);
+Stuff Snew(void*, bool);
 void Sadd(Stuff*, void*);
 void Sprint(Stuff*);
 
