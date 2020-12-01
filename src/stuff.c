@@ -1,8 +1,10 @@
 #include "stuff.h"
 
 Stuff Snew(void *data, bool s) {
+    Stuff* new = malloc(sizeof(Stuff));
+    *new = Snew(data, false);
     Stuff t = {
-        data, // widget
+        new, // widget
         s, // selected
         NULL // next
     };

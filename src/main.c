@@ -54,6 +54,10 @@ int main() {
 
     Sprint(&s);
 
+    Sdelete(&s);
+
+    Sprint(&s);
+
     // driver code
     /*while (true) {*/
         /*clear();*/

@@ -14,5 +14,6 @@ typedef struct s_Stuff {
 Stuff Snew(void*, bool);
 void Sadd(Stuff*, void*);
 void Sprint(Stuff*);
+void Sdelete(Stuff*);
 
 #endif
