@@ -5,20 +5,21 @@
 #include <stdbool.h>
 #include <string.h>
 
-typedef struct {
-    int x;
-    int y;
-    int width;
-    int height;
-    char* text;
-} NWWidget;
-
 enum NWWidgetType {
     WHeader,
     WButton,
     WToggle,
     WText,
 };
+
+typedef struct {
+    int x;
+    int y;
+    int width;
+    int height;
+    char* text;
+    NWWidgetType type;
+} NWWidget;
 
 NWWidget NWwidget_new(unsigned int, char*, NWWidgetType);
 

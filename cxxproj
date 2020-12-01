@@ -1,9 +1,6 @@
 -SOURCE
 src/main.c
-src/text.c
-src/button.c
-src/header.c
-src/toggle.c
+src/widgets.c
 src/str_repeat.c
 src/stuff.c
 
