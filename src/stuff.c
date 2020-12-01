@@ -16,3 +16,13 @@ void Sadd(Stuff *stuff, void *data) {
     }
     t->next = data;
 }
+
+void Sprint(Stuff *stuff) {
+    Stuff *t = stuff;
+    unsigned int c = 0;
+    while (t->next != NULL) {
+        printf("widget %d", c);
+        c++;
+    }
+    printf("widget %d", c);
+}

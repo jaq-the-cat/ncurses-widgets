@@ -2,6 +2,7 @@
 #define STUFF_H
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
 
 typedef struct s_Stuff {
