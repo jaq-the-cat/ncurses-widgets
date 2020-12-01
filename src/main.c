@@ -25,10 +25,10 @@ enum States process_key() {
 
 int main() {
     // setup ncurses
-    /*initscr();*/
-    /*cbreak();*/
-    /*curs_set(false);*/
-    /*keypad(stdscr, true);*/
+    initscr();
+    cbreak();
+    curs_set(false);
+    keypad(stdscr, true);
 
     // init widgets
     int yoff = 1;
