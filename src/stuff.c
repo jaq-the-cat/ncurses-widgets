@@ -21,8 +21,8 @@ void Sprint(Stuff *stuff) {
     Stuff *t = stuff;
     unsigned int c = 0;
     while (t->next != NULL) {
-        printf("widget %d", c);
+        printf("widget %d\n", c);
         c++;;
     }
-    printf("widget %d", c);
+    printf("widget %d\n", c);
 }
