@@ -28,11 +28,8 @@ void Sprint(Stuff *stuff) {
 }
 
 void Sdelete(Stuff *stuff) {
-    printf("Sdelete()\n");
-    if (stuff->next != NULL) {
-        printf("delet\n");
+    if (stuff->next != NULL)
         Sdelete(stuff->next);
-    }
     printf("fre\n");
     free(stuff);
 }
