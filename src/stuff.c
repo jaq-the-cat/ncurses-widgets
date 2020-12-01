@@ -10,8 +10,9 @@ Stuff Snew(void *data) {
 }
 
 void Sadd(Stuff *stuff, void *data) {
-    Stuff *t = NULL;
-    while (stuff->next != NULL) {
-
+    Stuff *t = stuff;
+    while (t->next != NULL) {
+        t = t->next;
     }
+    t->next = data;
 }
