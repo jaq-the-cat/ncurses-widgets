@@ -52,36 +52,31 @@ int main() {
 
     Sadd(s, &tgl);
 
-    Sprint(s);
-
-    Sdelete(s);
-
-    Sprint(s);
-
     // driver code
-    /*while (true) {*/
-        /*clear();*/
-        /*NWheader_display(&h, stdscr);*/
-        /*NWbutton_display(&b, stdscr);*/
-        /*NWtext_display(&t, stdscr);*/
-        /*NWtoggle_display(&tgl, stdscr);*/
-        /*switch (process_key()) {*/
-            /*case END:*/
-                /*goto end;*/
-            /*case CONTINUE:*/
-                /*continue;*/
-            /*case NOTHING:*/
-                /*break;*/
-        /*};*/
-        /*refresh();*/
-        /*napms(25);*/
-    /*}*/
+    while (true) {
+        clear();
+        NWheader_display(&h, stdscr);
+        NWbutton_display(&b, stdscr);
+        NWtext_display(&t, stdscr);
+        NWtoggle_display(&tgl, stdscr);
+        switch (process_key()) {
+            case END:
+                goto end;
+            case CONTINUE:
+                continue;
+            case NOTHING:
+                break;
+        };
+        refresh();
+        napms(25);
+    }
 
 
     // end
     end:
-    /*curs_set(true);*/
-    /*nocbreak();*/
-    /*endwin();*/
+    Sdelete(s);
+    curs_set(true);
+    nocbreak();
+    endwin();
     return 0;
 }
