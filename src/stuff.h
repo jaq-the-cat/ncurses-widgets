@@ -13,5 +13,6 @@ typedef struct s_Stuff {
 
 Stuff Snew(void*);
 void Sadd(Stuff*, void*);
+void Sprint(Stuff*);
 
 #endif
