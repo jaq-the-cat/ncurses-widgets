@@ -22,7 +22,7 @@ void Sprint(Stuff *stuff) {
     unsigned int c = 0;
     while (t->next != NULL) {
         printf("widget %d", c);
-        c++;
+        c++;;
     }
     printf("widget %d", c);
 }

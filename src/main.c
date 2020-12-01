@@ -4,6 +4,7 @@
 #include <stdbool.h>
 
 #include "widgets.h"
+#include "stuff.h"
 
 enum States {
     END,
@@ -33,13 +34,23 @@ int main() {
     int yoff = 1;
     NWHeader h = NWheader(yoff, "Hello!!");
     yoff += h.height;
+
+    Stuff s = Snew((void*) &h);
+
     NWButton b = NWbutton(yoff, "My Button");
     yoff += b.height;
+    Sadd(&s, &b);
+
     NWText t = NWtext(yoff, "Text!");
     yoff += t.height;
+
+    Sadd(&s, &t);
+
     NWToggle tgl = NWtoggle(yoff, "Toggle!");
     tgl.pressed = true;
     yoff += tgl.height;
+
+    Sadd(&s, &tgl);
 
     // driver code
     while (true) {
