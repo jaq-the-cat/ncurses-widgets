@@ -71,7 +71,6 @@ int main() {
         napms(25);
     }
 
-
     // end
     end:
     Sdelete(s);
