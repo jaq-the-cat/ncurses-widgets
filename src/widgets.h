@@ -11,45 +11,16 @@ typedef struct {
     int width;
     int height;
     char* text;
-} NWHeader;
+} NWWidget;
 
-NWHeader NWheader(int, char*);
-void NWheader_display(NWHeader*, WINDOW*);
+enum NWWidgetType {
+    WHeader,
+    WButton,
+    WToggle,
+    WText,
+};
 
-typedef struct {
-    int x;
-    int y;
-    int width;
-    int height;
-    char* text;
-} NWText;
-
-NWText NWtext(int, char*);
-void NWtext_display(NWText*, WINDOW*);
-
-typedef struct {
-    int x;
-    int y;
-    int width;
-    int height;
-    char* text;
-    bool pressed;
-} NWButton;
-
-NWButton NWbutton(int, char*);
-void NWbutton_display(NWButton*, WINDOW*);
-
-typedef struct {
-    int x;
-    int y;
-    int width;
-    int height;
-    char* text;
-    bool pressed;
-} NWToggle;
-
-NWToggle NWtoggle(int, char*);
-void NWtoggle_display(NWToggle*, WINDOW*);
+NWWidget NWwidget_new(unsigned int, char*, NWWidgetType);
 
 const char* str_repeat(char*, size_t);
 #endif
