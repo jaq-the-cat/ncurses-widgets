@@ -28,3 +28,9 @@ void Sprint(Stuff *stuff) {
     }
     printf("widget %d\n", c);
 }
+
+void Sdelete(Stuff *stuff) {
+    if (stuff->next != NULL)
+        Sdelete(stuff->next);
+    free(stuff);
+}
