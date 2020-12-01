@@ -31,5 +31,6 @@ void Sdelete(Stuff *stuff) {
     if (stuff->next != NULL)
         Sdelete(stuff->next);
     printf("fre\n");
+    stuff->next = NULL;
     free(stuff);
 }
