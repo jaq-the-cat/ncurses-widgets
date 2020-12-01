@@ -1,13 +1,10 @@
 #include "stuff.h"
 
-Stuff Snew(void *data, bool s) {
-    Stuff* new = malloc(sizeof(Stuff));
-    *new = Snew(data, false);
-    Stuff t = {
-        new, // widget
-        s, // selected
-        NULL // next
-    };
+Stuff* Snew(void *data, bool s) {
+    Stuff *t = (Stuff *) malloc(sizeof(Stuff));
+    t->widget = data;
+    t->selected = s;
+    t->next = NULL;
     return t;
 }
 
@@ -15,8 +12,7 @@ void Sadd(Stuff *stuff, void *data) {
     Stuff *t = stuff;
     while (t->next != NULL)
         t = t->next;
-    Stuff* new = malloc(sizeof(Stuff));
-    *new = Snew(data, false);
+    Stuff* new = Snew(data, false);
     t->next = new;
 }
 
@@ -32,7 +28,11 @@ void Sprint(Stuff *stuff) {
 }
 
 void Sdelete(Stuff *stuff) {
-    if (stuff->next != NULL)
+    printf("Sdelete()\n");
+    if (stuff->next != NULL) {
+        printf("delet\n");
         Sdelete(stuff->next);
+    }
+    printf("fre\n");
     free(stuff);
 }

@@ -35,28 +35,28 @@ int main() {
     NWHeader h = NWheader(yoff, "Hello!!");
     yoff += h.height;
 
-    Stuff s = Snew(&h, true);
+    Stuff* s = Snew(&h, true);
 
     NWButton b = NWbutton(yoff, "My Button");
     yoff += b.height;
-    Sadd(&s, &b);
+    Sadd(s, &b);
 
     NWText t = NWtext(yoff, "Text!");
     yoff += t.height;
 
-    Sadd(&s, &t);
+    Sadd(s, &t);
 
     NWToggle tgl = NWtoggle(yoff, "Toggle!");
     tgl.pressed = true;
     yoff += tgl.height;
 
-    Sadd(&s, &tgl);
+    Sadd(s, &tgl);
 
-    Sprint(&s);
+    Sprint(s);
 
-    Sdelete(&s);
+    Sdelete(s);
 
-    Sprint(&s);
+    Sprint(s);
 
     // driver code
     /*while (true) {*/
