@@ -39,6 +39,23 @@ void NWtoggle_display(NWWidget *w, WINDOW *stdscr) {
     mvaddstr(w->y, w->x, text);
 }
 
+void NWWidget_display(NWWidget *w, WINDOW *stdscr) {
+    switch (w->type) {
+        case WHeader:
+            NWheader_display(w, stdscr);
+            break;
+        case WButton:
+            NWbutton_display(w, stdscr);
+            break;
+        case WToggle:
+            NWtoggle_display(w, stdscr);
+            break;
+        case WText:
+            NWtext_display(w, stdscr);
+            break;
+    }
+}
+
 int get_extra_width(enum NWWidgetType type) {
     switch (type) {
         case WHeader:
