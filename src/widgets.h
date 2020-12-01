@@ -19,6 +19,7 @@ typedef struct {
     int height;
     char* text;
     enum NWWidgetType type;
+    bool pressed;
 } NWWidget;
 
 NWWidget NWwidget_new(unsigned int, char*, enum NWWidgetType);
