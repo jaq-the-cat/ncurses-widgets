@@ -32,21 +32,21 @@ int main() {
 
     // init widgets
     int yoff = 1;
-    NWHeader h = NWheader(yoff, "Hello!!");
+    NWWidget h = NWwidget_new(yoff, "Hello!!", WHeader);
     yoff += h.height;
 
     Stuff* s = Snew(&h, true);
 
-    NWButton b = NWbutton(yoff, "My Button");
+    NWWidget b = NWwidget_new(yoff, "My Button", WButton);
     yoff += b.height;
     Sadd(s, &b);
 
-    NWText t = NWtext(yoff, "Text!");
+    NWWidget t = NWwidget_new(yoff, "Text!", WText);
     yoff += t.height;
 
     Sadd(s, &t);
 
-    NWToggle tgl = NWtoggle(yoff, "Toggle!");
+    NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
     tgl.pressed = true;
     yoff += tgl.height;
 
