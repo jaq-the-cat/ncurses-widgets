@@ -28,6 +28,7 @@ void NWheader_display(NWWidget*, WINDOW*);
 void NWbutton_display(NWWidget*, WINDOW*);
 void NWtext_display(NWWidget*, WINDOW*);
 void NWtoggle_display(NWWidget*, WINDOW*);
+void NWWidget_display(NWWidget*, WINDOW*);
 
 const char* str_repeat(char*, size_t);
 #endif

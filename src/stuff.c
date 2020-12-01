@@ -1,4 +1,5 @@
 #include "stuff.h"
+#include "widgets.h"
 
 Stuff* Snew(void *data, bool s) {
     Stuff *t = (Stuff *) malloc(sizeof(Stuff));
@@ -16,21 +17,19 @@ void Sadd(Stuff *stuff, void *data) {
     t->next = new;
 }
 
-void Sprint(Stuff *stuff) {
+void Sprint(Stuff *stuff, WINDOW* stdscr) {
     Stuff *t = stuff;
     unsigned int c = 0;
     while (t->next != NULL) {
-        printf("widget %d\n", c);
+        NWWidget_display(t->widget, stdscr);
         c++;
         t = t->next;
     }
-    printf("widget %d\n", c);
 }
 
 void Sdelete(Stuff *stuff) {
     if (stuff->next != NULL)
         Sdelete(stuff->next);
-    printf("fre\n");
     stuff->next = NULL;
     free(stuff);
 }
