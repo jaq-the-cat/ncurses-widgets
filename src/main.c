@@ -43,15 +43,27 @@ int main() {
 
     // init widgets
     int yoff = 1;
+
     NWWidget header = NWwidget_new(yoff, "Hello!!", WHeader);
     yoff += header.height;
+
     NWWidget btn = NWwidget_new(yoff, "My Button", WButton);
     yoff += btn.height;
+
     NWWidget text = NWwidget_new(yoff, "Text!", WText);
     yoff += text.height;
-    NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
-    yoff += tgl.height;
-    tgl.pressed = true;
+
+    NWWidget tgl0 = NWwidget_new(yoff, "Toggle!", WToggle);
+    yoff += tgl0.height;
+    tgl0.pressed = true;
+
+    NWWidget tgl1 = NWwidget_new(yoff, "Toggle!", WToggle);
+    yoff += tgl1.height;
+    tgl1.pressed = true;
+
+    NWWidget tgl2 = NWwidget_new(yoff, "Toggle!", WToggle);
+    tgl2.pressed = true;
+    yoff += tgl2.height;
 
     // config widgets
     
