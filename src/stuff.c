@@ -8,6 +8,8 @@ Stuff Snew(void *data) {
     t->next = NULL;
     Stuff st = {
         .head = t,
+        .selected = t,
+        .length = 0,
     };
     return st;
 }
@@ -29,18 +31,11 @@ void Sadd(Stuff *stuff, void *data) {
 }
 
 void Smove(Stuff *stuff, int d) {
-    int new_i = stuff->selected + d;
-    if (new_i < 0) new_i = 0;
-    else if (new_i > stuff->length) new_i = stuff->length;
-    stuff->selected = new_i;
+    stuff->selected = stuff->selected->next;
 }
 
 void Sclick(Stuff *stuff) {
-    StuffNode *t = stuff->head;
-    int c = 0;
-    for (int c=0; t != NULL; c++, t = t->next)
-        if (c == stuff->selected)
-            t->widget->pressed = !(t->widget->pressed);
+    stuff->selected->widget->pressed = !(stuff->selected->widget->pressed);
 }
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {

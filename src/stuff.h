@@ -15,7 +15,7 @@ typedef struct s_StuffNode {
 
 typedef struct {
     StuffNode* head;
-    int selected;
+    StuffNode *selected;
     int length;
 } Stuff;
 
