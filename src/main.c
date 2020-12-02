@@ -34,7 +34,6 @@ int main() {
     int yoff = 1;
     NWWidget h = NWwidget_new(yoff, "Hello!!", WHeader);
     yoff += h.height;
-
     Stuff* s = Snew(&h, true);
 
     NWWidget b = NWwidget_new(yoff, "My Button", WButton);
@@ -43,7 +42,6 @@ int main() {
 
     NWWidget t = NWwidget_new(yoff, "Text!", WText);
     yoff += t.height;
-
     Sadd(s, &t);
 
     NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
@@ -55,10 +53,7 @@ int main() {
     // driver code
     while (true) {
         clear();
-        NWheader_display(&h, stdscr);
-        NWbutton_display(&b, stdscr);
-        NWtext_display(&t, stdscr);
-        NWtoggle_display(&tgl, stdscr);
+        Sprint(s, stdscr);
         switch (process_key()) {
             case END:
                 goto end;

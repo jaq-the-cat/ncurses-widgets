@@ -21,6 +21,10 @@ void Sprint(Stuff *stuff, WINDOW* stdscr) {
     Stuff *t = stuff;
     unsigned int c = 0;
     while (t->next != NULL) {
+        if (t->selected) {
+            int y = t->widget->y + ((float) (t->widget->height) / 2.0);
+            mvaddch((int) y, 0, 'x');
+        }
         NWWidget_display(t->widget, stdscr);
         c++;
         t = t->next;

@@ -5,9 +5,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <ncurses.h>
+#include "widgets.h"
 
 typedef struct s_Stuff {
-    void *widget;
+    NWWidget *widget;
     bool selected;
     struct s_Stuff *next;
 } Stuff;

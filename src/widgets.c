@@ -90,6 +90,7 @@ NWWidget NWwidget_new(unsigned int y, char* text, enum NWWidgetType type) {
         .height = get_height(type),
         .text = text,
         .pressed = false,
+        .type = type,
     };
     return w;
 }
