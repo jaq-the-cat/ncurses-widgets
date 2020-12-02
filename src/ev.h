@@ -6,12 +6,21 @@
 enum EventType {
     ButtonPress,
     ToggleOn,
-    ToggleOff
+    ToggleOff,
+    No,
 };
 
-typedef struct s_Events {
+typedef struct s_Event {
     enum EventType type;
     NWWidget *source;
-} Events;
+} Event;
+
+Event Emake_event() {
+    Event e = {
+        .type = No,
+        .source = NULL,
+    };
+    return e;
+}
 
 #endif
