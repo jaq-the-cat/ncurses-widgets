@@ -35,13 +35,24 @@ void Smove(Stuff *stuff, int d) {
 }
 
 void Sclick(Stuff *stuff) {
-
+    StuffNode *t = stuff->head;
+    int c = 0;
+    for (int c=0; t != NULL; c++, t = t->next) {
+        if (c == stuff->selected) {
+            int y = t->widget->y;
+            if (t->widget->height > 1)
+                 y += (float) (t->widget->height) / 2.0;
+            mvaddch((int) y, 0, 'x');
+        }
+        c++;
+        t = t->next;
+    }
 }
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     StuffNode *t = stuff->head;
     int c = 0;
-    while (true) {
+    for (int c=0; t != NULL; c++, t = t->next) {
         if (c == stuff->selected) {
             int y = t->widget->y;
             if (t->widget->height > 1)
@@ -50,10 +61,7 @@ void Sprint(Stuff *stuff, WINDOW* stdscr) {
         }
         NWWidget_display(t->widget, stdscr);
         c++;
-        if (t->next != NULL)
-            t = t->next;
-        else
-            break;
+        t = t->next;
     }
 }
 
