@@ -7,13 +7,18 @@
 #include <ncurses.h>
 #include "widgets.h"
 
-typedef struct s_Stuff {
+typedef struct s_StuffNode {
     NWWidget *widget;
-    bool selected;
-    struct s_Stuff *next;
+    struct s_StuffNode *next;
+} StuffNode;
+
+typedef struct {
+    s_StuffNode* head;
+    int selected;
+    int length;
 } Stuff;
 
-Stuff* Snew(void*, bool);
+Stuff Snew(void*);
 void Sadd(Stuff*, void*);
 void Sprint(Stuff*, WINDOW* stdscr);
 void Sdelete(Stuff*);

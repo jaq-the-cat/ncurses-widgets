@@ -1,34 +1,35 @@
 #include "stuff.h"
 #include "widgets.h"
 
-Stuff* Snew(void *data, bool s) {
-    Stuff *t = (Stuff *) malloc(sizeof(Stuff));
+Stuff Snew(void *data) {
+    StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
-    t->selected = s;
+    t->next = NULL;
+    Stuff st = {
+        .head = t,
+    };
+    return st;
+}
+
+StuffNode* _Snew_node(void *data) {
+    StuffNode *t = malloc(sizeof(StuffNode));
+    t->widget = data;
     t->next = NULL;
     return t;
 }
 
 void Sadd(Stuff *stuff, void *data) {
-    Stuff *t = stuff;
+    StuffNode *t = stuff->head;
     while (t->next != NULL)
         t = t->next;
-    Stuff* new = Snew(data, false);
+    StuffNode *new = _Snew_node(data);
     t->next = new;
 }
 
-void Smove_down(Stuff *stuff) {
-    for (Stuff *t = stuff;; t = t->next) {
-        if (t->selected) {
-            t->selected = false;
-        }
-    }
-}
-
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
-    Stuff *t = stuff;
+    StuffNode *t = stuff->head;
     for (int c=0; t->next != NULL; c++, t = t->next) {
-        if (t->selected) {
+        if (c == stuff->selected) {
             int y = t->widget->y;
             if (t->widget->height > 1)
                  y += (float) (t->widget->height) / 2.0;
@@ -38,9 +39,13 @@ void Sprint(Stuff *stuff, WINDOW* stdscr) {
     }
 }
 
+void _Sdelete_node(StuffNode *node) {
+    if (node->next != NULL)
+        _Sdelete_node(node->next);
+    node->next = NULL;
+    free(node);
+}
+
 void Sdelete(Stuff *stuff) {
-    if (stuff->next != NULL)
-        Sdelete(stuff->next);
-    stuff->next = NULL;
-    free(stuff);
+    _Sdelete_node(stuff->head);
 }
