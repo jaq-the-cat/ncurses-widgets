@@ -43,12 +43,12 @@ int main() {
 
     // init widgets
     int yoff = 1;
-    NWWidget h = NWwidget_new(yoff, "Hello!!", WHeader);
-    yoff += h.height;
-    NWWidget b = NWwidget_new(yoff, "My Button", WButton);
-    yoff += b.height;
-    NWWidget t = NWwidget_new(yoff, "Text!", WText);
-    yoff += t.height;
+    NWWidget header = NWwidget_new(yoff, "Hello!!", WHeader);
+    yoff += header.height;
+    NWWidget btn = NWwidget_new(yoff, "My Button", WButton);
+    yoff += btn.height;
+    NWWidget text = NWwidget_new(yoff, "Text!", WText);
+    yoff += text.height;
     NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
     yoff += tgl.height;
     tgl.pressed = true;
@@ -56,9 +56,9 @@ int main() {
     // config widgets
     
     // add widgets
-    Stuff s = Snew(&h);
-    Sadd(&s, &b);
-    Sadd(&s, &t);
+    Stuff s = Snew(&header);
+    Sadd(&s, &btn);
+    Sadd(&s, &text);
     Sadd(&s, &tgl);
 
     // driver code
