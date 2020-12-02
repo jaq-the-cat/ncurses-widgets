@@ -19,9 +19,8 @@ void Sadd(Stuff *stuff, void *data) {
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     Stuff *t = stuff;
-    unsigned int c = 0;
     for (int c=0; t->next != NULL; c++, t = t->next) {
-        if (t->selected == c) {
+        if (stuff->selected == c) {
             int y = t->widget->y;
             if (t->widget->height > 1)
                  y += (float) (t->widget->height) / 2.0;

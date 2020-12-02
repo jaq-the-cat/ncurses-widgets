@@ -40,7 +40,7 @@ int main() {
     int yoff = 1;
     NWWidget h = NWwidget_new(yoff, "Hello!!", WHeader);
     yoff += h.height;
-    Stuff* s = Snew(&h, true);
+    Stuff* s = Snew(&h, 0);
 
     NWWidget b = NWwidget_new(yoff, "My Button", WButton);
     yoff += b.height;
