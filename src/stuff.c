@@ -26,6 +26,13 @@ void Sadd(Stuff *stuff, void *data) {
     t->next = new;
 }
 
+void Smove(Stuff *stuff, int d) {
+    int new_i = stuff->selected + d;
+    if (new_i < 0) new_i = 0;
+    else if (new_i > stuff->length) new_i = stuff->length;
+    stuff->selected = new_i;
+}
+
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     StuffNode *t = stuff->head;
     for (int c=0; t->next != NULL; c++, t = t->next) {
