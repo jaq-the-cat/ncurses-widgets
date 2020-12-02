@@ -37,12 +37,9 @@ void Smove(Stuff *stuff, int d) {
 void Sclick(Stuff *stuff) {
     StuffNode *t = stuff->head;
     int c = 0;
-    for (int c=0; t != NULL; c++, t = t->next) {
+    for (int c=0; t != NULL; c++, t = t->next)
         if (c == stuff->selected)
             t->widget->pressed = !(t->widget->pressed);
-        c++;
-        t = t->next;
-    }
 }
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
