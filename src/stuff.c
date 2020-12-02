@@ -38,12 +38,8 @@ void Sclick(Stuff *stuff) {
     StuffNode *t = stuff->head;
     int c = 0;
     for (int c=0; t != NULL; c++, t = t->next) {
-        if (c == stuff->selected) {
-            int y = t->widget->y;
-            if (t->widget->height > 1)
-                 y += (float) (t->widget->height) / 2.0;
-            mvaddch((int) y, 0, 'x');
-        }
+        if (c == stuff->selected)
+            t->widget->pressed = !(t->widget->pressed);
         c++;
         t = t->next;
     }
@@ -60,8 +56,6 @@ void Sprint(Stuff *stuff, WINDOW* stdscr) {
             mvaddch((int) y, 0, 'x');
         }
         NWWidget_display(t->widget, stdscr);
-        c++;
-        t = t->next;
     }
 }
 
