@@ -1,6 +1,6 @@
-#include "ev.h"
 #include "stuff.h"
 #include "widgets.h"
+#include "ev.h"
 
 Stuff Snew(void *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
@@ -128,6 +128,8 @@ void Srun(Stuff* stuff, void (*handler)(Event*)) {
                 Smove(stuff, -1);
                 break;
             case CLICK:
+                Event e = Emake_event();
+                (*handler)(&e);
                 Sclick(stuff);
                 break;
         };
