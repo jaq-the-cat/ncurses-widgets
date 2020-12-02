@@ -1,7 +1,7 @@
 #include "stuff.h"
 #include "widgets.h"
 
-Stuff* Snew(void *data, int s) {
+Stuff* Snew(void *data, bool s) {
     Stuff *t = (Stuff *) malloc(sizeof(Stuff));
     t->widget = data;
     t->selected = s;
@@ -20,7 +20,7 @@ void Sadd(Stuff *stuff, void *data) {
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     Stuff *t = stuff;
     for (int c=0; t->next != NULL; c++, t = t->next) {
-        if (stuff->selected == c) {
+        if (t->selected) {
             int y = t->widget->y;
             if (t->widget->height > 1)
                  y += (float) (t->widget->height) / 2.0;
