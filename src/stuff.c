@@ -82,3 +82,62 @@ void Stick(Stuff* stuff) {
     } else
         n++;
 }
+
+enum States process_key() {
+    int c;
+    switch (c = getch()) {
+        case KEY_BACKSPACE:
+            return END;
+        case KEY_UP:
+            return UP;
+        case KEY_DOWN:
+            return DOWN;
+        case 10:
+        case KEY_ENTER:
+            return CLICK;
+        default:
+            break;
+    }
+    return NOTHING;
+}
+
+void Srun(Stuff* stuff) {
+    initscr();
+    cbreak();
+    curs_set(false);
+    noecho();
+    nodelay(stdscr, true);
+    keypad(stdscr, true);
+
+    while (true) {
+        clear();
+        Stick(stuff);
+        Sprint(stuff, stdscr);
+        switch (process_key()) {
+            case END:
+                goto end;
+            case CONTINUE:
+                continue;
+            case NOTHING:
+                break;
+            case DOWN:
+                Smove(stuff, 1);
+                break;
+            case UP:
+                Smove(stuff, -1);
+                break;
+            case CLICK:
+                Sclick(stuff);
+                break;
+        };
+        refresh();
+        napms(25);
+    }
+
+    end:
+    Sdelete(stuff);
+    echo();
+    curs_set(true);
+    nocbreak();
+    endwin();
+}

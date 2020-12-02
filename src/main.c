@@ -6,33 +6,6 @@
 #include "widgets.h"
 #include "stuff.h"
 
-enum States {
-    END,
-    CONTINUE,
-    NOTHING,
-    DOWN,
-    UP,
-    CLICK,
-};
-
-enum States process_key() {
-    int c;
-    switch (c = getch()) {
-        case KEY_BACKSPACE:
-            return END;
-        case KEY_UP:
-            return UP;
-        case KEY_DOWN:
-            return DOWN;
-        case 10:
-        case KEY_ENTER:
-            return CLICK;
-        default:
-            break;
-    }
-    return NOTHING;
-}
-
 int main() {
     // setup ncurses
     initscr();
@@ -71,37 +44,7 @@ int main() {
         Sadd(&s, &toggles[i]);
 
     // driver code
-    while (true) {
-        clear();
-        Stick(&s);
-        Sprint(&s, stdscr);
-        switch (process_key()) {
-            case END:
-                goto end;
-            case CONTINUE:
-                continue;
-            case NOTHING:
-                break;
-            case DOWN:
-                Smove(&s, 1);
-                break;
-            case UP:
-                Smove(&s, -1);
-                break;
-            case CLICK:
-                Sclick(&s);
-                break;
-        };
-        refresh();
-        napms(25);
-    }
 
     // end
-    end:
-    Sdelete(&s);
-    echo();
-    curs_set(true);
-    nocbreak();
-    endwin();
     return 0;
 }

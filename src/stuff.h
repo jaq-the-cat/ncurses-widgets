@@ -18,6 +18,15 @@ typedef struct {
     int length;
 } Stuff;
 
+enum States {
+    END,
+    CONTINUE,
+    NOTHING,
+    DOWN,
+    UP,
+    CLICK,
+};
+
 Stuff Snew(void*);
 void Sadd(Stuff*, void*);
 void Smove(Stuff*, int);
@@ -25,5 +34,6 @@ void Sclick(Stuff*);
 void Sprint(Stuff*, WINDOW* stdscr);
 void Sdelete(Stuff*);
 void Stick(Stuff*);
+void Srun(Stuff*);
 
 #endif
