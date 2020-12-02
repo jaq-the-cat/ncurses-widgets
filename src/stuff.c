@@ -76,7 +76,7 @@ void Sclear_buttons(Stuff* stuff) {
 
 void Stick(Stuff* stuff) {
     static int n = 0;
-    if (n > 30) {
+    if (n > 10) {
         n = 0;
         Sclear_buttons(stuff);
     } else

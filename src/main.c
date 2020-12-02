@@ -39,6 +39,7 @@ int main() {
     cbreak();
     curs_set(false);
     noecho();
+    nodelay(stdscr, true);
     keypad(stdscr, true);
 
     // init widgets
