@@ -53,7 +53,6 @@ int main() {
     NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
     tgl.pressed = true;
     yoff += tgl.height;
-
     Sadd(&s, &tgl);
 
     // driver code
