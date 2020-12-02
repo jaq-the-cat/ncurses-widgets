@@ -44,7 +44,6 @@ void Sclick(Stuff *stuff) {
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     StuffNode *t = stuff->head;
-    int c = 0;
     for (int c=0; t != NULL; c++, t = t->next) {
         if (c == stuff->selected) {
             int y = t->widget->y;
@@ -65,4 +64,12 @@ void _Sdelete_node(StuffNode *node) {
 
 void Sdelete(Stuff *stuff) {
     _Sdelete_node(stuff->head);
+}
+
+void Sclear_buttons(Stuff* stuff) {
+    StuffNode *t = stuff->head;
+    for (int c=0; t != NULL; c++, t = t->next) {
+        if (t->widget->type == WButton && t->widget->pressed)
+            t->widget->pressed = false;
+    }
 }
