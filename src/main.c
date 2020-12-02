@@ -45,19 +45,20 @@ int main() {
     int yoff = 1;
     NWWidget h = NWwidget_new(yoff, "Hello!!", WHeader);
     yoff += h.height;
-    Stuff s = Snew(&h);
-
     NWWidget b = NWwidget_new(yoff, "My Button", WButton);
     yoff += b.height;
-    Sadd(&s, &b);
-
     NWWidget t = NWwidget_new(yoff, "Text!", WText);
     yoff += t.height;
-    Sadd(&s, &t);
-
     NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
-    tgl.pressed = true;
     yoff += tgl.height;
+    tgl.pressed = true;
+
+    // config widgets
+    
+    // add widgets
+    Stuff s = Snew(&h);
+    Sadd(&s, &b);
+    Sadd(&s, &t);
     Sadd(&s, &tgl);
 
     // driver code
