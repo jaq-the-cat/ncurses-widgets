@@ -17,6 +17,14 @@ void Sadd(Stuff *stuff, void *data) {
     t->next = new;
 }
 
+void Smove_down(Stuff *stuff) {
+    for (Stuff *t = stuff;; t = t->next) {
+        if (t->selected) {
+            t->selected = false;
+        }
+    }
+}
+
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     Stuff *t = stuff;
     for (int c=0; t->next != NULL; c++, t = t->next) {
