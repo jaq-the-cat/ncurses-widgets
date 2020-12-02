@@ -53,17 +53,13 @@ int main() {
     NWWidget text = NWwidget_new(yoff, "Text!", WText);
     yoff += text.height;
 
-    NWWidget tgl0 = NWwidget_new(yoff, "Toggle!", WToggle);
-    yoff += tgl0.height;
-    tgl0.pressed = true;
-
-    NWWidget tgl1 = NWwidget_new(yoff, "Toggle!", WToggle);
-    yoff += tgl1.height;
-    tgl1.pressed = true;
-
-    NWWidget tgl2 = NWwidget_new(yoff, "Toggle!", WToggle);
-    tgl2.pressed = true;
-    yoff += tgl2.height;
+    NWWidget toggles[5];
+    for (int i=0; i<5; i++) {
+        NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
+        yoff += tgl.height;
+        tgl.pressed = true;
+        toggles[i] = tgl;
+    }
 
     // config widgets
     
@@ -71,9 +67,8 @@ int main() {
     Stuff s = Snew(&header);
     Sadd(&s, &btn);
     Sadd(&s, &text);
-    Sadd(&s, &tgl0);
-    Sadd(&s, &tgl1);
-    Sadd(&s, &tgl2);
+    for (int i=0; i<5; i++)
+        Sadd(&s, &toggles[i]);
 
     // driver code
     while (true) {
