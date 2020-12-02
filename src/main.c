@@ -12,6 +12,7 @@ enum States {
     NOTHING,
     DOWN,
     UP,
+    CLICK,
 };
 
 enum States process_key() {
@@ -23,6 +24,8 @@ enum States process_key() {
             return UP;
         case KEY_DOWN:
             return DOWN;
+        case KEY_ENTER:
+            return CLICK;
         default:
             break;
     }
@@ -71,6 +74,9 @@ int main() {
                 break;
             case UP:
                 Smove(&s, -1);
+                break;
+            case CLICK:
+                Sclick(&s);
                 break;
         };
         refresh();

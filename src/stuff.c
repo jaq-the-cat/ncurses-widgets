@@ -34,6 +34,10 @@ void Smove(Stuff *stuff, int d) {
     stuff->selected = new_i;
 }
 
+void Sclick(Stuff *stuff) {
+
+}
+
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     StuffNode *t = stuff->head;
     int c = 0;

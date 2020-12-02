@@ -21,6 +21,7 @@ typedef struct {
 Stuff Snew(void*);
 void Sadd(Stuff*, void*);
 void Smove(Stuff*, int);
+void Sclick(Stuff*);
 void Sprint(Stuff*, WINDOW* stdscr);
 void Sdelete(Stuff*);
 
