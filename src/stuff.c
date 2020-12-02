@@ -36,7 +36,8 @@ void Smove(Stuff *stuff, int d) {
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     StuffNode *t = stuff->head;
-    for (int c=0; t->next != NULL; c++, t = t->next) {
+    int c = 0;
+    while (true) {
         if (c == stuff->selected) {
             int y = t->widget->y;
             if (t->widget->height > 1)
@@ -44,6 +45,11 @@ void Sprint(Stuff *stuff, WINDOW* stdscr) {
             mvaddch((int) y, 0, 'x');
         }
         NWWidget_display(t->widget, stdscr);
+        c++;
+        if (t->next != NULL)
+            t = t->next;
+        else
+            break;
     }
 }
 
