@@ -3,6 +3,7 @@ src/main.c
 src/widgets.c
 src/str_repeat.c
 src/stuff.c
+src/ev.c
 
 -LIBS
 ncurses
