@@ -11,7 +11,7 @@ enum EventType {
 
 typedef struct s_Events {
     enum EventType type;
-    NWWidget source;
+    NWWidget *source;
 } Events;
 
 #endif
