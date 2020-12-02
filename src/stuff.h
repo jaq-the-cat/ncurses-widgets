@@ -9,11 +9,11 @@
 
 typedef struct s_Stuff {
     NWWidget *widget;
-    bool selected;
+    int selected;
     struct s_Stuff *next;
 } Stuff;
 
-Stuff* Snew(void*, bool);
+Stuff* Snew(void*, int);
 void Sadd(Stuff*, void*);
 void Sprint(Stuff*, WINDOW* stdscr);
 void Sdelete(Stuff*);

@@ -9,7 +9,9 @@
 enum States {
     END,
     CONTINUE,
-    NOTHING
+    NOTHING,
+    DOWN,
+    UP,
 };
 
 enum States process_key() {
@@ -17,6 +19,10 @@ enum States process_key() {
     switch (c = getch()) {
         case KEY_BACKSPACE:
             return END;
+        case KEY_UP:
+            return UP;
+        case KEY_DOWN:
+            return DOWN;
         default:
             break;
     }
@@ -61,7 +67,16 @@ int main() {
                 continue;
             case NOTHING:
                 break;
+            case DOWN:
+                s->selected += 1;
+                break;
+            case UP:
+                s->selected -= 1;
+                break;
         };
+        char st[10];
+        sprintf(st, "%d", s->selected);
+        mvaddstr(40, 0, st);
         refresh();
         napms(25);
     }
