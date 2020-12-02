@@ -60,9 +60,6 @@ int main() {
     while (true) {
         clear();
         Sprint(&s, stdscr);
-        char st[10];
-        sprintf(st, "%d", s.selected);
-        mvaddstr(40, 0, st);
         switch (process_key()) {
             case END:
                 goto end;
@@ -71,10 +68,10 @@ int main() {
             case NOTHING:
                 break;
             case DOWN:
-                s.selected += 1;
+                Smove(&s, 1);
                 break;
             case UP:
-                s.selected -= 1;
+                Smove(&s, -1);
                 break;
         };
         refresh();

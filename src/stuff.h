@@ -20,6 +20,7 @@ typedef struct {
 
 Stuff Snew(void*);
 void Sadd(Stuff*, void*);
+void Smove(Stuff*, int);
 void Sprint(Stuff*, WINDOW* stdscr);
 void Sdelete(Stuff*);
 
