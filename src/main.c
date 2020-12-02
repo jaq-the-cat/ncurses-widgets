@@ -24,7 +24,8 @@ enum States process_key() {
             return UP;
         case KEY_DOWN:
             return DOWN;
-        case 10: // ENTER
+        case 10:
+        case KEY_ENTER:
             return CLICK;
         default:
             break;
