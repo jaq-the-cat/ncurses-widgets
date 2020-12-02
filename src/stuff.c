@@ -1,5 +1,6 @@
 #include "stuff.h"
 #include "widgets.h"
+#include "ev.h"
 
 Stuff Snew(void *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
@@ -101,7 +102,7 @@ enum States process_key() {
     return NOTHING;
 }
 
-void Srun(Stuff* stuff) {
+void Srun(Stuff* stuff, void (*handler)(Event*)) {
     initscr();
     cbreak();
     curs_set(false);

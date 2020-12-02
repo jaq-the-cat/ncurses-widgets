@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <ncurses.h>
 #include "widgets.h"
+#include "ev.h"
 
 typedef struct s_StuffNode {
     NWWidget *widget;
@@ -34,6 +35,6 @@ void Sclick(Stuff*);
 void Sprint(Stuff*, WINDOW* stdscr);
 void Sdelete(Stuff*);
 void Stick(Stuff*);
-void Srun(Stuff*);
+void Srun(Stuff*, void (*)(Event*));
 
 #endif
