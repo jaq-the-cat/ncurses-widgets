@@ -58,7 +58,6 @@ int main() {
     for (int i=0; i<5; i++) {
         NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
         yoff += tgl.height;
-        tgl.pressed = true;
         toggles[i] = tgl;
     }
 
