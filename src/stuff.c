@@ -114,6 +114,7 @@ void Srun(Stuff* stuff, void (*handler)(Event*)) {
         clear();
         Stick(stuff);
         Sprint(stuff, stdscr);
+        Event e = Emake_event();
         switch (process_key()) {
             case END:
                 goto end;
@@ -128,7 +129,6 @@ void Srun(Stuff* stuff, void (*handler)(Event*)) {
                 Smove(stuff, -1);
                 break;
             case CLICK:
-                Event e = Emake_event();
                 (*handler)(&e);
                 Sclick(stuff);
                 break;
