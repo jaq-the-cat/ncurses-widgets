@@ -71,7 +71,9 @@ int main() {
     Stuff s = Snew(&header);
     Sadd(&s, &btn);
     Sadd(&s, &text);
-    Sadd(&s, &tgl);
+    Sadd(&s, &tgl0);
+    Sadd(&s, &tgl1);
+    Sadd(&s, &tgl2);
 
     // driver code
     while (true) {
