@@ -38,6 +38,7 @@ int main() {
     initscr();
     cbreak();
     curs_set(false);
+    noecho();
     keypad(stdscr, true);
 
     // init widgets
@@ -87,6 +88,7 @@ int main() {
     // end
     end:
     Sdelete(&s);
+    echo();
     curs_set(true);
     nocbreak();
     endwin();
