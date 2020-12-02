@@ -24,6 +24,6 @@ void Smove(Stuff*, int);
 void Sclick(Stuff*);
 void Sprint(Stuff*, WINDOW* stdscr);
 void Sdelete(Stuff*);
-void Sclear_buttons(Stuff*);
+void Stick(Stuff*);
 
 #endif

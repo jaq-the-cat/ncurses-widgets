@@ -73,7 +73,7 @@ int main() {
     // driver code
     while (true) {
         clear();
-        Sclear_buttons(&s);
+        Stick(&s);
         Sprint(&s, stdscr);
         switch (process_key()) {
             case END:

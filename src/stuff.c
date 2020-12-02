@@ -73,3 +73,12 @@ void Sclear_buttons(Stuff* stuff) {
             t->widget->pressed = false;
     }
 }
+
+void Stick(Stuff* stuff) {
+    static int n = 0;
+    if (n > 30) {
+        n = 0;
+        Sclear_buttons(stuff);
+    } else
+        n++;
+}
