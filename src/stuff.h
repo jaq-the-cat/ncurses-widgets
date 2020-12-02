@@ -13,7 +13,7 @@ typedef struct s_StuffNode {
 } StuffNode;
 
 typedef struct {
-    s_StuffNode* head;
+    StuffNode* head;
     int selected;
     int length;
 } Stuff;

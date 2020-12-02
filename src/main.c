@@ -40,26 +40,29 @@ int main() {
     int yoff = 1;
     NWWidget h = NWwidget_new(yoff, "Hello!!", WHeader);
     yoff += h.height;
-    Stuff* s = Snew(&h, false);
+    Stuff s = Snew(&h);
 
     NWWidget b = NWwidget_new(yoff, "My Button", WButton);
     yoff += b.height;
-    Sadd(s, &b);
+    Sadd(&s, &b);
 
     NWWidget t = NWwidget_new(yoff, "Text!", WText);
     yoff += t.height;
-    Sadd(s, &t);
+    Sadd(&s, &t);
 
     NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
     tgl.pressed = true;
     yoff += tgl.height;
 
-    Sadd(s, &tgl);
+    Sadd(&s, &tgl);
 
     // driver code
     while (true) {
         clear();
-        Sprint(s, stdscr);
+        Sprint(&s, stdscr);
+        char st[10];
+        sprintf(st, "%d", s.selected);
+        mvaddstr(40, 0, st);
         switch (process_key()) {
             case END:
                 goto end;
@@ -68,22 +71,19 @@ int main() {
             case NOTHING:
                 break;
             case DOWN:
-                s->selected += 1;
+                s.selected += 1;
                 break;
             case UP:
-                s->selected -= 1;
+                s.selected -= 1;
                 break;
         };
-        char st[10];
-        sprintf(st, "%d", s->selected);
-        mvaddstr(40, 0, st);
         refresh();
         napms(25);
     }
 
     // end
     end:
-    Sdelete(s);
+    Sdelete(&s);
     curs_set(true);
     nocbreak();
     endwin();
