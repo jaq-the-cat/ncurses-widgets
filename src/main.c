@@ -43,8 +43,8 @@ int main() {
     for (int i=0; i<5; i++)
         Sadd(&s, &toggles[i]);
 
-    // driver code
+    // mainloop
+    Srun(&s);
 
-    // end
     return 0;
 }
