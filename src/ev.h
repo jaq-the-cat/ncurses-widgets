@@ -15,12 +15,6 @@ typedef struct s_Event {
     NWWidget *source;
 } Event;
 
-Event Emake_event() {
-    Event e = {
-        .type = No,
-        .source = NULL,
-    };
-    return e;
-}
+Event Emake_event();
 
 #endif

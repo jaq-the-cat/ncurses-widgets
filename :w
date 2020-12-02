@@ -6,9 +6,6 @@
 #include "widgets.h"
 #include "stuff.h"
 
-void event_handler(Event* e) {
-}
-
 int main() {
     // setup ncurses
     initscr();
@@ -47,7 +44,7 @@ int main() {
         Sadd(&s, &toggles[i]);
 
     // mainloop
-    Srun(&s, event_handler);
+    Srun(&s);
 
     return 0;
 }

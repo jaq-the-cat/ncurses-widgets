@@ -1,6 +1,6 @@
+#include "ev.h"
 #include "stuff.h"
 #include "widgets.h"
-#include "ev.h"
 
 Stuff Snew(void *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
