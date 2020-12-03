@@ -11,6 +11,7 @@ Stuff Snew(void *data) {
         .head = t,
         .selected = t,
         .length = 0,
+        .yoff = 3,
     };
     return st;
 }
@@ -30,6 +31,7 @@ void Sadd(Stuff *stuff, NWWidget *data) {
     StuffNode *new = _Snew_node(t, data);
     t->next = new;
     stuff->length += 1;
+    data->y = stuff->yoff;
     stuff->yoff += data->height;
 }
 
