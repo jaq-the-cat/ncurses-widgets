@@ -10,6 +10,7 @@
 
 typedef struct s_StuffNode {
     NWWidget *widget;
+    struct s_StuffNode *previous;
     struct s_StuffNode *next;
 } StuffNode;
 

@@ -5,6 +5,7 @@
 Stuff Snew(void *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
+    t->previous = NULL;
     t->next = NULL;
     Stuff st = {
         .head = t,
@@ -14,9 +15,10 @@ Stuff Snew(void *data) {
     return st;
 }
 
-StuffNode* _Snew_node(void *data) {
+StuffNode* _Snew_node(StuffNode *curr, void *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
+    t->previous = curr;
     t->next = NULL;
     return t;
 }
@@ -25,7 +27,7 @@ void Sadd(Stuff *stuff, void *data) {
     StuffNode *t = stuff->head;
     while (t->next != NULL)
         t = t->next;
-    StuffNode *new = _Snew_node(data);
+    StuffNode *new = _Snew_node(t, data);
     t->next = new;
     stuff->length += 1;
 }
