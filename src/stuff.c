@@ -2,7 +2,7 @@
 #include "widgets.h"
 #include "ev.h"
 
-Stuff Snew(void *data) {
+Stuff Snew(NWWidget *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
     t->previous = NULL;
@@ -11,8 +11,10 @@ Stuff Snew(void *data) {
         .head = t,
         .selected = t,
         .length = 0,
-        .yoff = 3,
+        .yoff = 1,
     };
+    data->y = st.yoff;
+    st.yoff += data->height;
     return st;
 }
 

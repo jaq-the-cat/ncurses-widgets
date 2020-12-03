@@ -19,21 +19,13 @@ int main() {
     keypad(stdscr, true);
 
     // init widgets
-    int yoff = 1;
 
     NWWidget header = NWwidget_new("Hello!!", WHeader);
-    yoff += header.height;
-
     NWWidget btn = NWwidget_new("My Button", WButton);
-    yoff += btn.height;
-
     NWWidget text = NWwidget_new("Text!", WText);
-    yoff += text.height;
-
     NWWidget toggles[5];
     for (int i=0; i<5; i++) {
         NWWidget tgl = NWwidget_new("Toggle!", WToggle);
-        yoff += tgl.height;
         toggles[i] = tgl;
     }
 

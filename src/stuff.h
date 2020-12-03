@@ -30,7 +30,7 @@ enum States {
     CLICK,
 };
 
-Stuff Snew(void*);
+Stuff Snew(NWWidget*);
 void Sadd(Stuff*, NWWidget*);
 void Smove(Stuff*, int);
 void Sclick(Stuff*);
