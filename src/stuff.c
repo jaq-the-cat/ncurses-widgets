@@ -44,7 +44,7 @@ void Smove(Stuff *stuff, int d) {
 }
 
 void Sclick(Stuff *stuff) {
-    stuff->selected->widget->pressed = !(stuff->selected->widget->pressed);
+    stuff->selected->widget->pressed ^= true;
 }
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
