@@ -33,8 +33,14 @@ void Sadd(Stuff *stuff, void *data) {
 }
 
 void Smove(Stuff *stuff, int d) {
-    if (stuff->selected->next != NULL)
-        stuff->selected = stuff->selected->next;
+    if (d < 0) {
+        if (stuff->selected->previous != NULL)
+            stuff->selected = stuff->selected->previous;
+    }
+    else if (d > 0) {
+        if (stuff->selected->next != NULL)
+            stuff->selected = stuff->selected->next;
+    }
 }
 
 void Sclick(Stuff *stuff) {
