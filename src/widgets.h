@@ -22,7 +22,7 @@ typedef struct {
     bool pressed;
 } NWWidget;
 
-NWWidget NWwidget_new(unsigned int, char*, enum NWWidgetType);
+NWWidget NWwidget_new(char*, enum NWWidgetType);
 
 void NWheader_display(NWWidget*, WINDOW*);
 void NWbutton_display(NWWidget*, WINDOW*);

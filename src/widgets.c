@@ -82,10 +82,10 @@ int get_height(enum NWWidgetType type) {
     }
 }
 
-NWWidget NWwidget_new(unsigned int y, char* text, enum NWWidgetType type) {
+NWWidget NWwidget_new(char* text, enum NWWidgetType type) {
     NWWidget w = {
         .x = 2,
-        .y = y,
+        .y = 0,
         .width = strlen(text) + get_extra_width(type),
         .height = get_height(type),
         .text = text,
