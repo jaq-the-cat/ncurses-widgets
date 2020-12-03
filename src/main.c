@@ -21,18 +21,18 @@ int main() {
     // init widgets
     int yoff = 1;
 
-    NWWidget header = NWwidget_new(yoff, "Hello!!", WHeader);
+    NWWidget header = NWwidget_new("Hello!!", WHeader);
     yoff += header.height;
 
-    NWWidget btn = NWwidget_new(yoff, "My Button", WButton);
+    NWWidget btn = NWwidget_new("My Button", WButton);
     yoff += btn.height;
 
-    NWWidget text = NWwidget_new(yoff, "Text!", WText);
+    NWWidget text = NWwidget_new("Text!", WText);
     yoff += text.height;
 
     NWWidget toggles[5];
     for (int i=0; i<5; i++) {
-        NWWidget tgl = NWwidget_new(yoff, "Toggle!", WToggle);
+        NWWidget tgl = NWwidget_new("Toggle!", WToggle);
         yoff += tgl.height;
         toggles[i] = tgl;
     }

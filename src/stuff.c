@@ -23,13 +23,14 @@ StuffNode* _Snew_node(StuffNode *curr, void *data) {
     return t;
 }
 
-void Sadd(Stuff *stuff, void *data) {
+void Sadd(Stuff *stuff, NWWidget *data) {
     StuffNode *t = stuff->head;
     while (t->next != NULL)
         t = t->next;
     StuffNode *new = _Snew_node(t, data);
     t->next = new;
     stuff->length += 1;
+    stuff->yoff += data->height;
 }
 
 void Smove(Stuff *stuff, int d) {

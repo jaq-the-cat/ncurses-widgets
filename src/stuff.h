@@ -15,9 +15,10 @@ typedef struct s_StuffNode {
 } StuffNode;
 
 typedef struct {
-    StuffNode* head;
+    StuffNode *head;
     StuffNode *selected;
     int length;
+    unsigned short yoff;
 } Stuff;
 
 enum States {
@@ -30,7 +31,7 @@ enum States {
 };
 
 Stuff Snew(void*);
-void Sadd(Stuff*, void*);
+void Sadd(Stuff*, NWWidget*);
 void Smove(Stuff*, int);
 void Sclick(Stuff*);
 void Sprint(Stuff*, WINDOW* stdscr);
