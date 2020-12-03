@@ -40,8 +40,8 @@ void Sclick(Stuff *stuff) {
 
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     StuffNode *t = stuff->head;
-    for (int c=0; t != NULL; c++, t = t->next) {
-        if (c == stuff->selected) {
+    for (; t != NULL; t = t->next) {
+        if (t == stuff->selected) {
             int y = t->widget->y;
             if (t->widget->height > 1)
                  y += (float) (t->widget->height) / 2.0;
