@@ -29,10 +29,9 @@ int main() {
         toggles[i] = tgl;
     }
 
-    // config widgets
-
     // add widgets
-    Stuff s = Snew(&header);
+    Stuff s = Snew(1);
+    Sadd(&s, &header);
     Sadd(&s, &btn);
     Sadd(&s, &text);
     for (int i=0; i<5; i++)

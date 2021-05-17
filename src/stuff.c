@@ -3,24 +3,18 @@
 #include "ev.h"
 
 // Create a new list of widgets (stuff)
-Stuff Snew(NWWidget *data) {
-    StuffNode *t = malloc(sizeof(StuffNode));
-    t->widget = data;
-    t->previous = NULL;
-    t->next = NULL;
+Stuff Snew(int yoff) {
     Stuff stuff = {
-        .head = t,
-        .selected = t,
+        .head = NULL,
+        .selected = NULL,
         .length = 0,
-        .yoff = 1,
+        .yoff = yoff,
     };
-    data->y = stuff.yoff;
-    stuff.yoff += data->height + data->bottom;
     return stuff;
 }
 
 // Add new node
-static StuffNode* Snew_node(StuffNode *curr, void *data) {
+static StuffNode* Snew_node(StuffNode *curr, NWWidget *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
     t->previous = curr;
@@ -31,10 +25,17 @@ static StuffNode* Snew_node(StuffNode *curr, void *data) {
 // Add widget to list
 void Sadd(Stuff *stuff, NWWidget *data) {
     StuffNode *t = stuff->head;
-    while (t->next != NULL)
-        t = t->next;
-    StuffNode *new = Snew_node(t, data);
-    t->next = new;
+    StuffNode *new;
+    if (t == NULL) {
+        new = Snew_node(NULL, data);
+        stuff->head = new;
+        stuff->selected = new;
+    } else {
+        while (t->next != NULL)
+            t = t->next;
+        new = Snew_node(t, data);
+        t->next = new;
+    }
     stuff->length += 1;
     data->y = stuff->yoff;
     stuff->yoff += data->height + data->bottom;

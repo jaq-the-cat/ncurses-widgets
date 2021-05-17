@@ -25,5 +25,10 @@ typedef struct {
     void (*handler)(Event*);
 } NWWidget;
 
-NWWidget NWwidget_new(char*, enum NWWidgetType, int, void (*)(Event*));
+NWWidget NWwidget_new(
+    char*, // content
+    enum NWWidgetType, // type
+    int, // bottom padding
+    void (*)(Event*) // event handler
+);
 #endif

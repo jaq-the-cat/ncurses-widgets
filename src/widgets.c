@@ -29,3 +29,8 @@ NWWidget NWwidget_new(char* text, enum NWWidgetType type, int bottom, void (*han
     };
     return w;
 }
+
+void NWset_handler(NWWidget *widget, void (*handler)(Event*)) {
+    if (widget->handler != NULL)
+        widget->handler = handler;
+}

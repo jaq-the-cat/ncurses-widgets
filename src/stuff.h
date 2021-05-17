@@ -31,7 +31,9 @@ enum States {
 };
 
 // Create a new list of widgets (stuff)
-Stuff Snew(NWWidget*);
+Stuff Snew(
+    int // initial y offset
+);
 
 // Add widget to list
 void Sadd(Stuff*, NWWidget*);
