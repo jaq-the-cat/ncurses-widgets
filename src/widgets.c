@@ -57,29 +57,11 @@ void NWWidget_display(NWWidget *w, WINDOW *stdscr) {
 }
 
 int get_extra_width(enum NWWidgetType type) {
-    switch (type) {
-        case WHeader:
-            return 4;
-        case WButton:
-            return 4;
-        case WToggle:
-            return 4;
-        default:
-            return 0;
-    }
+    return dimensions[type][0];
 }
 
 int get_height(enum NWWidgetType type) {
-    switch (type) {
-        case WHeader:
-            return 3;
-        case WButton:
-            return 1;
-        case WToggle:
-            return 1;
-        default:
-            return 1;
-    }
+    return dimensions[type][1];
 }
 
 NWWidget NWwidget_new(char* text, enum NWWidgetType type) {

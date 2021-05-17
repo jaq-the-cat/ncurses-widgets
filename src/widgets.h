@@ -12,6 +12,12 @@ enum NWWidgetType {
     WText,
 };
 
+const int dimensions[][2] = {
+    {4, 3}, // extra width, height
+    {4, 1},
+    {4, 1},
+};
+
 typedef struct {
     int x;
     int y;
