@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include "ev.h"
 
 enum NWWidgetType {
     WHeader,
@@ -20,7 +21,8 @@ typedef struct {
     char *text;
     enum NWWidgetType type;
     bool pressed;
+    void (*handler)(Event*);
 } NWWidget;
 
-NWWidget NWwidget_new(char*, enum NWWidgetType);
+NWWidget NWwidget_new(char*, enum NWWidgetType, void (*)(Event*));
 #endif

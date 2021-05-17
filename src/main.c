@@ -6,7 +6,8 @@
 #include "widgets.h"
 #include "stuff.h"
 
-void event_handler(Event* e) {
+void handler(Event *ev) {
+    mvprintw(0, 0, "Asasdkaslkfnsajkgbajkthk lm,fhsflkhKHDJKAFHAFHJWKD");
 }
 
 int main() {
@@ -19,17 +20,16 @@ int main() {
     keypad(stdscr, true);
 
     // init widgets
-    NWWidget header = NWwidget_new("Hello!!", WHeader);
-    NWWidget btn = NWwidget_new("My Button", WButton);
-    NWWidget text = NWwidget_new("Text!", WText);
+    NWWidget header = NWwidget_new("Hello!!", WHeader, NULL);
+    NWWidget btn = NWwidget_new("My Button", WButton, handler);
+    NWWidget text = NWwidget_new("Text!", WText, NULL);
     NWWidget toggles[5];
     for (int i=0; i<5; i++) {
-        NWWidget tgl = NWwidget_new("Toggle!", WToggle);
+        NWWidget tgl = NWwidget_new("Toggle!", WToggle, handler);
         toggles[i] = tgl;
     }
 
     // config widgets
-
 
     // add widgets
     Stuff s = Snew(&header);
@@ -39,7 +39,7 @@ int main() {
         Sadd(&s, &toggles[i]);
 
     // mainloop
-    Srun(&s, event_handler);
+    Srun(&s);
 
     return 0;
 }

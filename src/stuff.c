@@ -121,7 +121,7 @@ enum States process_key() {
     return NOTHING;
 }
 
-enum EventType _get_event_type(Stuff *stuff) {
+static enum EventType get_event_type(Stuff *stuff) {
     switch (stuff->selected->widget->type) {
         case WToggle:
             return (stuff->selected->widget->pressed) ? ToggleOn : ToggleOff;
@@ -133,7 +133,7 @@ enum EventType _get_event_type(Stuff *stuff) {
     }
 }
 
-void Srun(Stuff *stuff, void (*handler)(Event*)) {
+void Srun(Stuff *stuff) {
     initscr();
     cbreak();
     curs_set(false);
@@ -161,11 +161,11 @@ void Srun(Stuff *stuff, void (*handler)(Event*)) {
                 break;
             case CLICK:
                 Sclick(stuff);
-                e.source = stuff->selected->widget;
-                e.type = _get_event_type(stuff);
+                e.type = get_event_type(stuff);
+                if (stuff->selected->widget->handler != NULL)
+                    stuff->selected->widget->handler(&e);
                 break;
         };
-        (*handler)(&e);
         refresh();
         napms(25);
     }

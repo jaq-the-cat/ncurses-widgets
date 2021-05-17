@@ -1,8 +1,6 @@
 #ifndef EV_H
 #define EV_H
 
-#include "widgets.h"
-
 enum EventType {
     ButtonPress,
     ToggleOn,
@@ -12,7 +10,6 @@ enum EventType {
 
 typedef struct s_Event {
     enum EventType type;
-    NWWidget *source;
 } Event;
 
 Event Emake_event();

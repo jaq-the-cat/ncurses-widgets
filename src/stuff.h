@@ -40,6 +40,6 @@ void Sadd(Stuff*, NWWidget*);
 void Sdelete(Stuff*);
 
 // Run the code
-void Srun(Stuff*, void (*)(Event*));
+void Srun(Stuff*);
 
 #endif
