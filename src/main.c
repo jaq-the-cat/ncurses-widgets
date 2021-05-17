@@ -20,12 +20,12 @@ int main() {
     keypad(stdscr, true);
 
     // init widgets
-    NWWidget header = NWwidget_new("Hello!!", WHeader, NULL);
-    NWWidget btn = NWwidget_new("My Button", WButton, handler);
-    NWWidget text = NWwidget_new("Text!", WText, NULL);
+    NWWidget header = NWwidget_new("Hello!!", WHeader, 2, NULL);
+    NWWidget btn = NWwidget_new("My Button", WButton, 2, handler);
+    NWWidget text = NWwidget_new("Text!", WText, 0, NULL);
     NWWidget toggles[5];
     for (int i=0; i<5; i++) {
-        NWWidget tgl = NWwidget_new("Toggle!", WToggle, handler);
+        NWWidget tgl = NWwidget_new("Toggle!", WToggle, 0, handler);
         toggles[i] = tgl;
     }
 

@@ -8,15 +8,15 @@ Stuff Snew(NWWidget *data) {
     t->widget = data;
     t->previous = NULL;
     t->next = NULL;
-    Stuff st = {
+    Stuff stuff = {
         .head = t,
         .selected = t,
         .length = 0,
         .yoff = 1,
     };
-    data->y = st.yoff;
-    st.yoff += data->height;
-    return st;
+    data->y = stuff.yoff;
+    stuff.yoff += data->height + data->bottom;
+    return stuff;
 }
 
 // Add new node
@@ -37,7 +37,7 @@ void Sadd(Stuff *stuff, NWWidget *data) {
     t->next = new;
     stuff->length += 1;
     data->y = stuff->yoff;
-    stuff->yoff += data->height;
+    stuff->yoff += data->height + data->bottom;
 }
 
 // Move cursor

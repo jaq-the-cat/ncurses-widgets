@@ -15,12 +15,13 @@ static int get_height(enum NWWidgetType type) {
     return dimensions[type][1];
 }
 
-NWWidget NWwidget_new(char* text, enum NWWidgetType type, void (*handler)(Event*)) {
+NWWidget NWwidget_new(char* text, enum NWWidgetType type, int bottom, void (*handler)(Event*)) {
     NWWidget w = {
         .x = 2,
         .y = 0,
         .width = strlen(text) + get_extra_width(type),
         .height = get_height(type),
+        .bottom = bottom,
         .text = text,
         .pressed = false,
         .type = type,

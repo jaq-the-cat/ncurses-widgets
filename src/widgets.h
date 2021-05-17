@@ -18,11 +18,12 @@ typedef struct {
     int y;
     int width;
     int height;
+    int bottom;
     char *text;
     enum NWWidgetType type;
     bool pressed;
     void (*handler)(Event*);
 } NWWidget;
 
-NWWidget NWwidget_new(char*, enum NWWidgetType, void (*)(Event*));
+NWWidget NWwidget_new(char*, enum NWWidgetType, int, void (*)(Event*));
 #endif
