@@ -30,13 +30,16 @@ enum States {
     CLICK,
 };
 
+// Create a new list of widgets (stuff)
 Stuff Snew(NWWidget*);
+
+// Add widget to list
 void Sadd(Stuff*, NWWidget*);
-void Smove(Stuff*, int);
-void Sclick(Stuff*);
-void Sprint(Stuff*, WINDOW* stdscr);
+
+// Delete Stuff object
 void Sdelete(Stuff*);
-void Stick(Stuff*);
+
+// Run the code
 void Srun(Stuff*, void (*)(Event*));
 
 #endif

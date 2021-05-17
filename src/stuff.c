@@ -2,6 +2,7 @@
 #include "widgets.h"
 #include "ev.h"
 
+// Create a new list of widgets (stuff)
 Stuff Snew(NWWidget *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
@@ -18,6 +19,7 @@ Stuff Snew(NWWidget *data) {
     return st;
 }
 
+// Add new node
 StuffNode* _Snew_node(StuffNode *curr, void *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
@@ -26,6 +28,7 @@ StuffNode* _Snew_node(StuffNode *curr, void *data) {
     return t;
 }
 
+// Add widget to list
 void Sadd(Stuff *stuff, NWWidget *data) {
     StuffNode *t = stuff->head;
     while (t->next != NULL)
@@ -37,6 +40,7 @@ void Sadd(Stuff *stuff, NWWidget *data) {
     stuff->yoff += data->height;
 }
 
+// Move cursor
 void Smove(Stuff *stuff, int d) {
     if (d < 0) {
         if (stuff->selected->previous != NULL)
@@ -48,10 +52,12 @@ void Smove(Stuff *stuff, int d) {
     }
 }
 
+// Click widget
 void Sclick(Stuff *stuff) {
     stuff->selected->widget->pressed ^= true;
 }
 
+// Print widget
 void Sprint(Stuff *stuff, WINDOW* stdscr) {
     StuffNode *t = stuff->head;
     for (; t != NULL; t = t->next) {
@@ -65,6 +71,7 @@ void Sprint(Stuff *stuff, WINDOW* stdscr) {
     }
 }
 
+// Delete node
 void _Sdelete_node(StuffNode *node) {
     if (node->next != NULL)
         _Sdelete_node(node->next);
@@ -72,10 +79,12 @@ void _Sdelete_node(StuffNode *node) {
     free(node);
 }
 
+// Delete list
 void Sdelete(Stuff *stuff) {
     _Sdelete_node(stuff->head);
 }
 
+// Clear buttons (set pressed to false)
 void Sclear_buttons(Stuff* stuff) {
     StuffNode *t = stuff->head;
     for (int c=0; t != NULL; c++, t = t->next) {
@@ -84,6 +93,7 @@ void Sclear_buttons(Stuff* stuff) {
     }
 }
 
+// Tick
 void Stick(Stuff* stuff) {
     static int n = 0;
     if (n > 10) {

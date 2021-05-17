@@ -19,7 +19,6 @@ int main() {
     keypad(stdscr, true);
 
     // init widgets
-
     NWWidget header = NWwidget_new("Hello!!", WHeader);
     NWWidget btn = NWwidget_new("My Button", WButton);
     NWWidget text = NWwidget_new("Text!", WText);
@@ -30,7 +29,8 @@ int main() {
     }
 
     // config widgets
-    
+
+
     // add widgets
     Stuff s = Snew(&header);
     Sadd(&s, &btn);
