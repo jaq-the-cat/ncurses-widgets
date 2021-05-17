@@ -1,4 +1,5 @@
 -SOURCE
+src/display.c
 src/main.c
 src/widgets.c
 src/str_repeat.c

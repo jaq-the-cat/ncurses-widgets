@@ -1,10 +1,17 @@
 #include "widgets.h"
 
-int get_extra_width(enum NWWidgetType type) {
+static const int dimensions[][2] = { // extra width, height
+    {4, 3}, // WHeader
+    {4, 1}, // WButton
+    {4, 1}, // WToggle
+    {0, 1}, // WText
+};
+
+static int get_extra_width(enum NWWidgetType type) {
     return dimensions[type][0];
 }
 
-int get_height(enum NWWidgetType type) {
+static int get_height(enum NWWidgetType type) {
     return dimensions[type][1];
 }
 

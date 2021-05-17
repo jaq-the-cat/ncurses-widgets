@@ -1,5 +1,5 @@
 #include "stuff.h"
-#include "widgets.h"
+#include "display.h"
 #include "ev.h"
 
 // Create a new list of widgets (stuff)
@@ -20,7 +20,7 @@ Stuff Snew(NWWidget *data) {
 }
 
 // Add new node
-StuffNode* _Snew_node(StuffNode *curr, void *data) {
+static StuffNode* Snew_node(StuffNode *curr, void *data) {
     StuffNode *t = malloc(sizeof(StuffNode));
     t->widget = data;
     t->previous = curr;
@@ -33,7 +33,7 @@ void Sadd(Stuff *stuff, NWWidget *data) {
     StuffNode *t = stuff->head;
     while (t->next != NULL)
         t = t->next;
-    StuffNode *new = _Snew_node(t, data);
+    StuffNode *new = Snew_node(t, data);
     t->next = new;
     stuff->length += 1;
     data->y = stuff->yoff;
@@ -72,16 +72,16 @@ void Sprint(Stuff *stuff, WINDOW* stdscr) {
 }
 
 // Delete node
-void _Sdelete_node(StuffNode *node) {
+static void Sdelete_node(StuffNode *node) {
     if (node->next != NULL)
-        _Sdelete_node(node->next);
+        Sdelete_node(node->next);
     node->next = NULL;
     free(node);
 }
 
 // Delete list
 void Sdelete(Stuff *stuff) {
-    _Sdelete_node(stuff->head);
+    Sdelete_node(stuff->head);
 }
 
 // Clear buttons (set pressed to false)
